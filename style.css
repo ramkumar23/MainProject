@@ -1,0 +1,47 @@
+.admin_bann
+        {
+             background-image: url('images/bann-1%20-%20Copy.jpg');
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-position: center;
+             background-size:100% 100%;
+             color:white;
+        }
+
+.admin
+        {
+             background-image: url('images/admin.jpg');
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-position: center;
+             background-size:100% 100%;
+             color:white;
+
+        }
+
+body
+        {
+             background-image: url('images/img.jpg');
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-position: center;
+             background-size:100% 100%;
+             color:white;
+        }
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #00000085;
+   color: white;
+   text-align: center;
+}
+
+label{color:white;}
+        .frm {background-color: transparent;color:white;}
+        .frm:hover{border: 2px solid orange; }
+        a{color: white}
+        .frm:focus{background-color:black}
+        

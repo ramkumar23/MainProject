@@ -1,0 +1,87 @@
+<?php
+include('header.php');
+include('../config.php');
+?>
+<style>
+    a{color:white;}
+    .bdy
+    {
+        overflow:hidden;
+        background-color:#000000b8;
+        margin-top: -20px;
+    }
+    .logo-small {
+    color: #f4511e;
+    font-size: 50px;
+  }
+    table{background-color:#ffffff30;}
+    th{color:gold}
+    .co{margin-top: 50px;}
+</style>
+<body class="admin">   
+<div class="bdy">
+    <div class="container">
+    <h1><u>Manage Spares</u></h1>
+    <a href="add_sub_parts.php"><button class="btn btn-success pull-right">Add Spare</button></a><br>
+   	<table class="table co">
+    <tr>
+    <th>S.no</th>
+    <th>Name</th>
+    <th>Vehicle Type</th>
+    <th>Quenty</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Update</th>
+    <th>Delete</th>
+    </tr>
+     <?php
+        $count=0;
+        $query="SELECT * FROM `add_spare`";
+        $res=mysqli_query($con,$query);
+        while($fet=mysqli_fetch_array($res))
+        {
+        ?> 
+    <tr>
+        
+    <td><?php echo ++$count; ?></td>
+    <td><?php echo $fet['name']; ?></td>
+    <td><?php echo $fet['vehicle_type']; ?></td>
+    <td><?php echo $fet['quantity']; ?></td>
+    <td>&#8377;<?php echo $fet['price']; ?></td>
+    <td><?php echo $fet['des']; ?></td>
+   
+    <td><a href="update_spare.php?id=<?php echo $fet['id']; ?>"><button class="btn btn-warning">Update</button></a></td>
+    <td><a href="sub_product.php?id=<?php echo $fet['id']; ?>"><button class="btn btn-danger">Delete</button></a></td>
+    </tr>
+        <?php
+    }
+    ?>
+    </table>
+    <div class="footer">
+  <p>Footer</p>
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+        </div>
+</div>    
+</body>
+
+<?php
+if(!empty($_GET['id']))
+   {
+     $id=$_GET['id'];
+    $query="DELETE FROM `add_spare` WHERE id='$id'";
+    $res=mysqli_query($con,$query);
+    if(!empty($res))
+    {
+        echo '<script>window.location.href="sub_product.php"</script>';
+    }
+    else
+    {
+        echo '<script>alert("try again")</script>';
+
+    }
+}
+?>
